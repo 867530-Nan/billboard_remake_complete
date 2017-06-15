@@ -1,0 +1,23 @@
+<h4>Artist Name:</h4>
+<h3><%= @artist.name %></h3>
+<br />
+
+<h4>Artist Style:</h4>
+<h3><%= @artist.style %></h3>
+<br />
+
+<h4>Artist Origin City:</h4>
+<h3><%= @artist.city %></h3>
+<br />
+<br />
+<%= link_to 'View Tracks', artist_songs_path(@artist) %>
+<br />
+<br />
+
+<%= link_to 'Add Their Hits!', new_artist_song_path(@artist) %>
+		<br />
+		<br />
+<%= link_to 'View All Artists', artists_path %>
+<br />
+<br />
+<%= link_to 'Billboard Home', root_path %>

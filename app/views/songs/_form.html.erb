@@ -1,0 +1,31 @@
+<h1>Create a song!</h1>
+
+<%= form_for [@artist, @song] do |fuck| %>
+	<% if song.errors.any? %>
+		<h2><%= pluralize(song.errors.count, "error" )%> prohibited this song form being saved:</h2>
+		<ul>
+			<% song.errors.full_messages.each do |message| %>
+			<li><%= message %></li>
+			<% end %>
+		</ul>
+	<% end %>
+	<br />
+	<%= fuck.label :title %>
+	<br />
+	<%= fuck.text_field :title %>
+	<br />
+	<br />
+	<%= fuck.label :album %>
+	<br />
+	<%= fuck.text_field :album %>
+	<br />
+	<br />
+	<%= fuck.label :duration %>
+	<br />
+	<%= fuck.number_field :duration %>
+	<br />
+	<br />
+	<br />
+	<%= fuck.submit nil %>
+<% end %>
+<%= button_to 'Home', root_path, method: :get %>

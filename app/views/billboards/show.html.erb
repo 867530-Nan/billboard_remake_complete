@@ -1,0 +1,22 @@
+<h1> Welcome to <%= @billboard.title %> Charts!! </h1>
+<% if @songs.any? %>
+	<% @songs.each_with_index do |song, index| %>
+		<h2> Track #<%= (index + 1) %> </h2>
+		<h3> Artist: <%= song.artist.name %> </h3>
+		<%= song.title %>
+		<%= song.duration %>
+		<% end %>
+	<% else %>
+	<br/>
+	<br/>
+	<h3><%=@billboard.title %> has no tracks, please add some</h3> 
+	<% end %>
+	<br/>
+	<br/>
+	<br/>
+	<%= link_to 'Add Songs', new_billboard_song_path(@billboard) %>
+	<br/>
+	<%= link_to 'Delete Billboard', billboard_path, method: :delete %>
+	<br />
+	<%= link_to 'Billboard Home', root_path %>
+	

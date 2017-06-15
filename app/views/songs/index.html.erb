@@ -1,0 +1,27 @@
+<% if @artist.songs.any? %>
+	<% @artist.songs.each do |song| %>
+		<h2> <%= @artist.name %> Songs: </h2>
+		<h5>Song Title:</h5>
+		<%= song.title %>
+		<br />
+		<h5>Album Name:</h5>
+		<%= song.album %>
+		<br />
+		<h5>Song Duration</h5>
+		<p> <%= song.duration %> minutes </p>
+		<br />
+		<br />
+		<%= link_to 'Delete Song', artist_song_path(@artist, song), method: :delete %>
+		<br />
+		<br />
+		<% end %>
+<% else %>
+<h1>There are no current tracks for <%= @artist.name %></h1>
+<% end %>
+		<%= link_to 'Add Artist Tracks', new_artist_song_path(@artist) %>
+		<br />
+		<br />
+		<%= link_to 'Artist Home', artists_path %>
+		<br />
+		<br />
+		<%= link_to 'Billboard Home', root_path %>

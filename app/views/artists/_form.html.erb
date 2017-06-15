@@ -1,0 +1,38 @@
+
+
+<%= form_for(artist) do |fuck| %>
+	<% if artist.errors.any? %>
+		<h2><%= pluralize(artist.errors.count, "error" )%> prohibited this artist form being saved:</h2>
+		<ul>
+			<% artist.errors.full_messages.each do |message| %>
+			<li><%= message %></li>
+			<% end %>
+		</ul>
+	<% end %>
+	<br />
+	<%= fuck.label :name %>
+	<br />
+	<%= fuck.text_field :name %>
+	<br />
+	<br />
+	<br />
+	<%= fuck.label :style %>
+	<br />
+	<%= fuck.text_area :style, placeholder: 'What type of music do they play? ' %>
+	<br />
+	<br />
+	<br />
+	<%= fuck.label :city %>
+	<br />
+	<%= fuck.text_area :city, placeholder: 'Where they from? ' %>
+	<br />
+	<br />
+	<br />
+	<%= fuck.submit nil %>
+<% end %>
+<!-- button_to's default to PUT/PATCH, thus method-get is necessary for changing this. Try without to see what I mean.. -->
+<br />
+<br />
+<br />
+<%= button_to 'Artist Home', artists_path, method: :get%>
+<%= button_to 'Billboard Home', root_path, method: :get %>

@@ -1,0 +1,17 @@
+<h1>Add a song to: <%= @billboard.title %></h1>
+
+<% if @songs.any? %>
+<h4>Songs you can add:</h4>
+<% @songs.each do |song| %>
+<br/>
+<h3><%= link_to song.title, add_billboard_song_path(@billboard, song), method: :post %>, by: <%= song.artist.name %> </h3>
+<% end %>
+<% else %>
+
+<h2>Sorry, These is no music in the world. Please create an artist and songs</h2>
+
+<% end %>
+
+<%= button_to 'Home', root_path, method: :get %>
+<%= button_to 'View Artists', artists_path, method: :get %>
+<%= button_to 'Add Artist', new_artist_path, method: :get %>

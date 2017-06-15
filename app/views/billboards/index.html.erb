@@ -1,0 +1,36 @@
+<h1> ::Welcome to the Billboard Charts:: </h1>
+	<br />
+		<% if @billboards.any? %>
+
+				<% @billboards.each do |billboard| %>
+					<table>
+						<tr>
+							<th>Title</th>
+							<th></th>
+							<th></th>
+							<th>Description</th>
+						</tr>
+								<td><%= link_to billboard.title, billboard_path(billboard) %></td>
+							<th></th>
+							<th></th>
+								<td><%= billboard.description %></td>
+						</tr>
+					</table>
+					<% end %>
+			<% else %>
+				<h3>Looks like you need to create a billboard</h3>
+		<% end %>
+					
+
+<br />
+<br />
+<br />
+
+<%= link_to 'Add Billboard Chart', new_billboard_path %>
+<br />
+<br />
+<br />
+<%= link_to 'Check out Artists', artists_path %>
+
+
+

@@ -1,0 +1,31 @@
+<% if @artists.any? %>
+	<% @artists.each do |artist| %>
+		<%= artist.name %>
+		<br />
+		<%= artist.city %> 
+		<br />
+		<%= artist.style %>
+		<br />
+		<%= link_to 'Edit Artist', edit_artist_path(artist) %>
+			<br />
+		<%= link_to 'Show Artist Tracks', artist_songs_path(artist) %>
+		<br />
+		<%= link_to 'Delete Artist', artist_path(artist), method: :delete %>
+		<br />
+		<br />
+		<br />
+		<br />
+	<% end %>
+<% else %>
+	<h1>There's so much music out there, please add an artist</h1>
+<% end %>
+<br />
+<br />
+<br />
+<br />
+
+<%= link_to 'Add Artist', new_artist_path %>
+<br />
+<br />
+<br />
+<%= link_to 'Billboard Home', root_path %>

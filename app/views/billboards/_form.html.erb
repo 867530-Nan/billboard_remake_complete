@@ -1,0 +1,27 @@
+<h1>Create a Billboard!</h1>
+
+<%= form_for(billboard) do |fuck| %>
+	<% if billboard.errors.any? %>
+		<h2><%= pluralize(billboard.errors.count, "error" )%> prohibited this billboard form being saved:</h2>
+		<ul>
+			<% billboard.errors.full_messages.each do |message| %>
+			<li><%= message %></li>
+			<% end %>
+		</ul>
+	<% end %>
+	<br />
+	<%= fuck.label :title %>
+	<br />
+	<%= fuck.text_field :title %>
+	<br />
+	<br />
+	<br />
+	<%= fuck.label :description %>
+	<br />
+	<%= fuck.text_area :description, placeholder: 'Give this Chart a Description' %>
+	<br />
+	<br />
+	<br />
+	<%= fuck.submit nil %>
+<% end %>
+<%= button_to 'Home', root_path, method: :get %>
